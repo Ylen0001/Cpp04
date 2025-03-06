@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:16:53 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:30:40 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/05 17:25:59 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include "colors.hpp"
-#include "Animal.hpp"
 #include <iostream>
 
-class Cat : public Animal
+class Animal
 {
+	protected:
+
+	std::string type;
+	
 	public :
 
-	Cat();
-	~Cat();
-	Cat(std::string type);
-	Cat(const Cat& other); 
+	Animal();
+	virtual ~Animal();
+	Animal(std::string type);
 	std::string get_Type() const;
 	void set_Type(const std::string type);
-	Cat& operator=(const Cat& other);
-	void makeSound() const;
+	Animal& operator=(const Animal& other);
+	virtual void makeSound() const;
 };
 
-std::ostream& operator<<(std::ostream& out, const Cat& Cat);
+std::ostream& operator<<(std::ostream& out, const Animal& Animal);
+
 
 #endif

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 13:16:53 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:30:40 by ylenoel          ###   ########.fr       */
+/*   Created: 2025/03/06 14:40:29 by ylenoel           #+#    #+#             */
+/*   Updated: 2025/03/06 14:42:24 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
-#include "colors.hpp"
-#include "Animal.hpp"
 #include <iostream>
 
-class Cat : public Animal
+class WrongAnimal
 {
+	protected:
+
+	std::string type;
+	
 	public :
 
-	Cat();
-	~Cat();
-	Cat(std::string type);
-	Cat(const Cat& other); 
+	WrongAnimal();
+	virtual ~WrongAnimal();
+	WrongAnimal(std::string type);
 	std::string get_Type() const;
 	void set_Type(const std::string type);
-	Cat& operator=(const Cat& other);
+	WrongAnimal& operator=(const WrongAnimal& other);
 	void makeSound() const;
 };
-
-std::ostream& operator<<(std::ostream& out, const Cat& Cat);
 
 #endif

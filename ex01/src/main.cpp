@@ -6,32 +6,36 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:06:13 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/04 13:34:45 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/06 15:09:24 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#include "../includes/Animal.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/WrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
 #include "../includes/colors.hpp"
 #include <iostream>	
 
 int main(void)
 {
-	ClapTrap Clappy;
-	ClapTrap Roger("Roger");
-	std::cout << C_COLOMBIA_BLUE << std::endl;
-
-	Clappy.attack("Roger");
-	Clappy.takeDamage(5);
-	std::cout << "Clappy has now : " << Clappy.get_energyPoint() << " energy points available!" << std::endl;
-	Clappy.beRepaired(1);
+	// const WrongAnimal *meta = new WrongAnimal();
+	const Animal *meta = new Animal();
+	const Animal *j = new Dog();
+	const Animal *i = new Cat();
+	// const WrongAnimal *i = new WrongCat();
 	
-	std::cout << C_RESET << C_QUARTZ << std::endl;
+	std::cout << j->get_Type() << " " << std::endl;
+	std::cout << i->get_Type() << " " << std::endl;
+	std::cout << meta->get_Type() << " " << std::endl;
 
-	Roger.attack("Clappy");
-	Roger.takeDamage(10);
-	Roger.beRepaired(8);
-	std::cout << C_RESET << std::endl;
-	
+	j->makeSound();
+	i->makeSound();
+	meta->makeSound();
 
+	delete i;
+	delete j;
+	delete meta;
 	return (0);
 }
