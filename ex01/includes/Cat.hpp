@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:16:53 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:30:40 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 12:02:21 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 #include "colors.hpp"
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 
 class Cat : public Animal
 {
+	private :
+
+	Brain* ideas;
+
 	public :
 
 	Cat();

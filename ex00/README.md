@@ -33,3 +33,9 @@ La solution : Définir la fonction de la classe de base en virtual. De cette fa�
 Si le destructor de la classe de base n'est pas virtuel, alors lorsqu'on détruit un objet via un pointeur de la classe de base, seul le destructeur de la classe de base est appelé.
 
 On peut donc avoir des leaks si on ne pense pas à mettre le destructeur en virtual.
+
+### 5 - WrongAnimal/WrongCat
+
+À la différence de Animal, WrongAnimal n'a pas makeSound en Virtual.
+
+Donc, quand WrongCat appelle la fonction makeSound, elle appelle celle de WrongAnimal, et non la sienne.

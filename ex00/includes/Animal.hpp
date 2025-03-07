@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:16:53 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/05 17:25:59 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 10:44:58 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Animal
 	Animal();
 	virtual ~Animal();
 	Animal(std::string type);
+	Animal(const Animal& other);
 	std::string get_Type() const;
 	void set_Type(const std::string type);
 	Animal& operator=(const Animal& other);

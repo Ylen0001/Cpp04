@@ -6,32 +6,37 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:19:25 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:37:19 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:25:52 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Animal.hpp"
 #include "../includes/Cat.hpp"
+#include "../includes/Brain.hpp"
 
 Cat::Cat() : Animal("Cat")
 {
-	std::cout << "Cat default constructor called!" << std::endl;
+	std::cout << C_PASTEL_PURPLE "Cat default constructor called!" C_RESET << std::endl;
+	Brain *tmp = new Brain;
+	this->ideas = tmp; 
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat destructor called!" << std::endl;
+	std::cout << C_DEEP_RED "Cat destructor called!" C_RESET << std::endl;
+	delete this->ideas;
 }
 
 Cat::Cat(std::string type) : Animal(type)
 {
-	std::cout << this->get_Type() << " constructor called!" << std::endl;
+	std::cout << C_PASTEL_PURPLE << this->get_Type() << " constructor called!" << C_RESET << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)
 {
 	std::cout << "Cat copy constructor called!" << std::endl;
 	this->type = other.type;
+	this->ideas = new Brain(*other.ideas); // Deep copy
 }
 
 std::ostream& operator<<(std::ostream& out, const Cat& Cat)
@@ -53,11 +58,17 @@ void Cat::set_Type(const std::string type)
 Cat& Cat::operator=(const Cat& other)
 {
 	std::cout << "Cat copy assignement called!" << std::endl;
-	this->type = other.type;
+	if(this != &other)
+	{
+		this->type = other.type;
+		// this->ideas = other.ideas; // Shallow copy
+		this->ideas = new Brain(*other.ideas); // Deep Copy;
+	}
+	
 	return (*this);
 }
 
 void Cat::makeSound() const
 {
-	std::cout << "Meow!" << std::endl;
+	std::cout << C_PASTEL_PURPLE "Meow!" C_RESET << std::endl;
 }

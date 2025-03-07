@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:19:25 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:37:19 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 10:48:13 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ Cat::Cat() : Animal("Cat")
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called!" << std::endl;
-}
-
-Cat::Cat(std::string type) : Animal(type)
-{
-	std::cout << this->get_Type() << " constructor called!" << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other)

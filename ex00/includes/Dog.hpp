@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:16:53 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:30:46 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 10:39:14 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Dog : public Animal
 
 	Dog();
 	~Dog();
-	Dog(std::string type);
+	// Dog(std::string type);
 	Dog(const Dog& other);
 	std::string get_Type() const;
 	void set_Type(const std::string type);

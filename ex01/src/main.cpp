@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:06:13 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 15:09:24 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 15:09:01 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,34 @@
 
 int main(void)
 {
-	// const WrongAnimal *meta = new WrongAnimal();
-	const Animal *meta = new Animal();
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
-	// const WrongAnimal *i = new WrongCat();
+	Animal* animals[10];
+	for(int i = 0; i < 10; i++)
+	{
+		if(i < 5)
+		{
+			animals[i] = new Dog;
+			std::cout << C_PASTEL_BLUE << animals[i]->get_Type() << C_RESET << std::endl;
+			animals[i]->makeSound();
+		}
+		if(i >= 5)
+		{
+			animals[i] = new Cat;
+			std::cout << C_PASTEL_PURPLE << animals[i]->get_Type() << C_RESET << std::endl;
+			animals[i]->makeSound();
+		}
+	}
 	
-	std::cout << j->get_Type() << " " << std::endl;
-	std::cout << i->get_Type() << " " << std::endl;
-	std::cout << meta->get_Type() << " " << std::endl;
-
-	j->makeSound();
-	i->makeSound();
-	meta->makeSound();
-
-	delete i;
-	delete j;
-	delete meta;
+	for(int i = 0; i < 10; i++)
+	{
+		delete animals[i];
+	}
 	return (0);
 }
+	// Animal* dog = new Dog;
+	// Animal* cat = new Cat;
+
+	// std::cout << cat->get_Type() << std::endl;
+	// std::cout << dog->get_Type() << std::endl;
+	
+	// delete cat;
+	// delete dog;

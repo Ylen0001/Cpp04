@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:19:25 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:33:27 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:26:42 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,27 @@
 
 Dog::Dog() : Animal("Dog")
 {
-	std::cout << "Dog default constructor called!" << std::endl;
+	std::cout << C_PASTEL_BLUE "Dog default constructor called!" C_RESET << std::endl;
+	Brain *tmp = new Brain;
+	this->ideas = tmp; 
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog destructor called!" << std::endl;
+	std::cout << C_DUSTY_RED "Dog destructor called!" C_RESET << std::endl;
+	delete this->ideas;
 }
 
 Dog::Dog(std::string type) : Animal(type)
 {
-	std::cout << this->get_Type() << " constructor called!" << std::endl;
+	std::cout << C_PASTEL_BLUE << this->get_Type() << " constructor called!" << C_RESET << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other)
 {
 	std::cout << "Dog copy constructor called!" << std::endl;
 	this->type = other.type;
+	this->ideas = new Brain(*other.ideas); // Deep copy
 }
 
 std::ostream& operator<<(std::ostream& out, const Dog& Dog)
@@ -53,11 +57,16 @@ void Dog::set_Type(const std::string type)
 Dog& Dog::operator=(const Dog& other)
 {
 	std::cout << "Dog copy assignment called!" << std::endl;
-	this->type = other.type;
+	if(this != &other)
+	{
+		this->type = other.type;
+		// this->ideas = other.ideas; // Shallow copy
+		this->ideas = new Brain(*other.ideas);
+	}
 	return (*this);
 }
 
 void Dog::makeSound() const
 {
-	std::cout << "Woof!" << std::endl;
+	std::cout << C_PASTEL_BLUE "Woof!" C_RESET << std::endl;
 }

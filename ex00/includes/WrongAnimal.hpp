@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:40:29 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/06 14:42:24 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/07 10:45:17 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class WrongAnimal
 	WrongAnimal();
 	virtual ~WrongAnimal();
 	WrongAnimal(std::string type);
+	WrongAnimal(const WrongAnimal& other);
 	std::string get_Type() const;
 	void set_Type(const std::string type);
 	WrongAnimal& operator=(const WrongAnimal& other);

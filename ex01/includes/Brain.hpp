@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 13:16:53 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/07 10:39:07 by ylenoel          ###   ########.fr       */
+/*   Created: 2025/03/07 11:58:39 by ylenoel           #+#    #+#             */
+/*   Updated: 2025/03/07 16:24:42 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "colors.hpp"
-#include "Animal.hpp"
 #include <iostream>
 
-class Cat : public Animal
+class Brain
 {
-	public :
+	private:
 
-	Cat();
-	~Cat();
-	// Cat(std::string type);
-	Cat(const Cat& other); 
-	std::string get_Type() const;
-	void set_Type(const std::string type);
-	Cat& operator=(const Cat& other);
-	void makeSound() const;
+	std::string ideas[100];
+
+	public:
+
+	Brain();
+	~Brain();
+	Brain(const Brain& other);
+	Brain& operator=(const Brain& other);
+	std::string getIdeas(int idx) const;
+	void setIdeas(int idx, const std::string& idea);
+	
 };
-
-std::ostream& operator<<(std::ostream& out, const Cat& Cat);
 
 #endif
