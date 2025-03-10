@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:19:25 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/07 10:48:13 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:49:22 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ std::ostream& operator<<(std::ostream& out, const Cat& Cat)
 	return (out);
 }
 
+Cat& Cat::operator=(const Cat& other)
+{
+	std::cout << "Cat copy assignement called!" << std::endl;
+	this->type = other.type;
+	return (*this);
+}
+
 std::string Cat::get_Type() const
 {
 	return(this->type);
@@ -43,13 +50,6 @@ std::string Cat::get_Type() const
 void Cat::set_Type(const std::string type)
 {
 	this->type = type;
-}
-
-Cat& Cat::operator=(const Cat& other)
-{
-	std::cout << "Cat copy assignement called!" << std::endl;
-	this->type = other.type;
-	return (*this);
 }
 
 void Cat::makeSound() const

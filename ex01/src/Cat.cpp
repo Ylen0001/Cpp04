@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:19:25 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/07 16:25:52 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 14:31:51 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat() : Animal("Cat")
 {
 	std::cout << C_PASTEL_PURPLE "Cat default constructor called!" C_RESET << std::endl;
 	Brain *tmp = new Brain;
-	this->ideas = tmp; 
+	this->ideas = tmp;
 }
 
 Cat::~Cat()
@@ -71,4 +71,10 @@ Cat& Cat::operator=(const Cat& other)
 void Cat::makeSound() const
 {
 	std::cout << C_PASTEL_PURPLE "Meow!" C_RESET << std::endl;
+}
+
+void Cat::setIdeas(int idx, std::string idea)
+{
+	if(ideas)
+		this->setIdeas(idx, idea);
 }

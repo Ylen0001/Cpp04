@@ -6,7 +6,7 @@
 /*   By: ylenoel <ylenoel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:16:53 by ylenoel           #+#    #+#             */
-/*   Updated: 2025/03/07 12:02:21 by ylenoel          ###   ########.fr       */
+/*   Updated: 2025/03/10 16:13:37 by ylenoel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Cat : public Animal
 	void set_Type(const std::string type);
 	Cat& operator=(const Cat& other);
 	void makeSound() const;
+	void setIdeas(int idx, std::string idea);
 };
 
 std::ostream& operator<<(std::ostream& out, const Cat& Cat);
